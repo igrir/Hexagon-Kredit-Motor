@@ -1,0 +1,28 @@
+
+<br/>
+
+<form action="controller/BayarAngsur.php" method="POST">
+
+	<!-- Nama pelanggan didapat dari id yang dilemparkan -->
+	Nomor kwitansi <input type="text" name="no_kwitansi" value=""/><br/>
+
+	id kredit (nomor kartu pembayaran)<input type="text" name="id_kredit" value="DATA_ID_KREDIT"/><br/>
+	<hr/>
+	nama pelanggan <input type="text" value=""/><br/>
+	nama motor <input type="text" value=""/><br/>
+	<hr/>
+	tanggal bayar <input type="date" name="tgl_bayar" value=""/><br/>
+	tanggal tenggat <input type="date" name="tgl_tenggat" value=""/><br/>
+	<hr/>
+	
+	DATA_PEMBAYARAN_TOMBOL
+
+	<hr/>
+	biaya <input type="text" name="biaya" value="DATA_BIAYA"/><br/>
+	denda <input type="text" name="denda" value=""/><br/>
+	<hr/>
+	<h3>Kasir pembayaran</h3>
+	penerima <input type="text" name="penerima" value=""/><br/>
+	<hr/>
+	<input type="submit" value="bayar"/>
+</form>

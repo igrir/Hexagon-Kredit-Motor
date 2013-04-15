@@ -1,0 +1,4 @@
+delete from kredit;
+delete from kwitansi;
+delete from angsur;
+update motor set tersedia = 1;

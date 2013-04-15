@@ -1,0 +1,75 @@
+Fitur Hexagon
+
+
+1. Tampilkan bulan ini yang belum bayar siapa saja
+2. Tampilkan halaman pengguna. Di dalamnya ada
+	1. Kapan saja sudah membayar ( di dalamnya ada tanggal jatuh tempo masing-masing)
+	2. Sudah membayar kapan
+	3. No mesin
+	4. No rangka
+	5. No motor
+	6. Uang muka
+	7. Nama
+	8. Perusahaan
+	9. Alamat
+	10. Telepon
+
+3. Membayar
+	1. Cetak receipt, data-datanya:
+		a. No kwitansi
+		b. Tanggal
+		c. Kota
+		d. Dari
+		e. Jumlah uang
+		f. Keperluan (misal, pembayaran motor bla bla bla)
+		g. Penerima
+		h. Jabatan
+		i. Bank tujuan pembayaran
+		j. No rek.
+		k. Atas Nama (nama rekening)
+		l. Data perusahaan:
+			i.	 Nama perusahaan
+			ii.  Alamat perusahaan
+			iii. Telepon
+			iv.  Fax
+			v. 	 Email
+		m. Pembayar
+		n. Banyak uang
+		o. Untuk pembayaran
+	2. Cetak invoice, data-datanya:
+		a. No invoice
+		b. Nama pembayar
+		c. perusahaan pembayar
+		d. alamat pembayar
+		e. telepon pembayar
+		f. deskripsi bayaran
+		g. jumlah harga bayaran
+		h. Total bayaran
+		i. terbilang
+		j. Bank tujuan pembayaran
+		k. No rek.
+		l. Atas Nama (nama rekening)
+		m. Penerima
+		n. Jabatan
+
+
+
+
+no mesin, no rangka, no motor
+tanggal jatuh tempo tanggal
+Uang muka
+
+Tahu dari mana ada yang belum bayar?
+	Perusahaan punya daftar konsumen siapa ja yang sudah bayar
+
+Ada berapa kali pembayaran?
+	- 1 tahun
+	- 2 tahun
+	- 3 tahun
+
+Uang muka termasuk angsuran pertama
+
+paling kanaaan ada saldo sisa hutang, jumlah kredit - angsuran. Kalau habis sisanya 0
+
+
+Perusahaan perlu tahu nomor KTP nggak?

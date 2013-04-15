@@ -1,0 +1,13 @@
+Statik (ini advance, implementasi belakangan):
+Nama perusahaan
+
+Kuitansi (Prefix/Nomor/Bulan/Tahun):
+Prefix kuitansi
+
+Penerima
+Jabatan
+Bank
+No. rek
+a.n
+
+Data perusahaan

@@ -1,0 +1,10 @@
+Milestones promnet:
+
+1. Bisa bayar angsuran ke X
+2. Bisa print receipt
+3. Bisa print invoice
+4. Bisa lihat daftar pelanggan
+5. Bisa lihat daftar motor
+6. Bisa lihat di profile orang yang udah kelewat bayar
+7. Di home bisa lihat daftar orang yang harus bayar (udah kelewat)
+8. Laporan pembayaran bulan ke XX tahun ke XXXX

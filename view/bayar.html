@@ -1,0 +1,73 @@
+
+<br/>
+
+<form action="controller/BayarAngsur.php" method="POST">
+
+
+	<table class="laporan">
+		<tr>
+			<td>
+				<b>Nama pelanggan</b>
+			</td>
+			<td>
+				<b>Nama motor kredit</b>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<a href="pelanggan.php?id=DATA_ID_PELANGGAN">DATA_NAMA_PELANGGAN</a>
+			</td>
+			<td>
+				DATA_NAMA_MOTOR
+			</td>
+		</tr>
+
+	</table>
+	<hr/>
+	<div class='judul'>Pembayaran ke - DATA_PEMBAYARAN_KE<input type="hidden" name="pembayaran_ke" value="DATA_PEMBAYARAN_KE"/></div>
+	<center>
+		<span class="small_text">id kredit (nomor kartu pembayaran)</span><br/>
+		DATA_ID_KREDIT <input type="hidden" name="id_kredit" value="DATA_ID_KREDIT"/><br/>
+	</center>
+	<hr/>
+	<table>
+		<tr>
+			<td>
+				tanggal bayar
+			</td>
+			<td>
+				<input type="date" name="tgl_bayar" value="DATA_DATE"/>
+			</td>
+		</tr>
+		<tr>
+			<td>tanggal tenggat</td>
+			<td>DATA_TANGGAL_TENGGAT</td>
+		</tr>
+	</table>
+	<hr/>
+	<table>
+		<tr>
+			<td>
+				biaya
+			</td>
+			<td>
+				Rp DATA_BIAYA<input type="hidden" name="biaya" value="DATA_BIAYA"/><br/>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				denda
+			</td>
+			<td>
+				Rp DATA_DENDA<input type="hidden" name="denda" value="DATA_DENDA"/><br/>
+			</td>
+		</tr>
+	</table>
+	
+	<hr/>
+	<h3>Kasir pembayaran</h3>
+	penerima <input type="text" name="penerima" value=""/><br/>
+	<hr/>
+	<input type="hidden" name="id_pelanggan" value = "DATA_ID_PELANGGAN"/>
+	<input type="submit" value="bayar"/>
+</form>

@@ -1,0 +1,210 @@
+<h1>Tambah kredit</h1>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		// $("#id_motor").keyup(function(){
+		// 	var id_motor = $("#id_motor").val();
+		// 	$.ajax({url: "API/getMotorInfo.php?id_motor="+id_motor,
+		// 			cache: false
+		// 			}).done(function (html) {
+		// 				var obj = $.parseJSON(html);
+		// 				$("#nama_motor").html(obj.nama_motor);
+		// 				$("#merk_motor").html(obj.merk_motor);
+		// 				$("#harga_motor").html(obj.harga);
+
+		// 				if (obj.tersedia == 1) {
+		// 					$("#tersedia").html("Tersedia");
+		// 				}else{
+		// 					$("#tersedia").html("Tidak tersedia");
+		// 				}
+						
+		// 			});
+
+		// });
+
+
+		//dapatkan merek motor
+		var merk_motor = "<option>---Pilih merek motor---</option>";
+
+		$.ajax({url: "API/getMerkMotor.php",
+					cache: false
+					}).done(function (html) {
+						var obj = $.parseJSON(html);
+						
+						for (var i=0; i < obj.length; i++) {
+							var merk_string = obj[i].merk_motor;
+
+							merk_motor += "<option value='"+merk_string+"'>"+merk_string+"</option>"
+						}
+
+						$("#pilih_merk_motor").html(merk_motor);
+						
+					});
+
+
+
+		//dapatkan nama motor
+
+		$("#pilih_merk_motor").change(
+			function(){
+			var nama_motor = "<option>---Pilih nama motor---</option>";
+
+			var merk_motor = $("#pilih_merk_motor").val();
+
+			$.ajax({url: "API/getNamaMotor.php?merk="+merk_motor,
+					cache: false
+					}).done(function (html) {
+						var obj = $.parseJSON(html);
+						
+						for (var i=0; i < obj.length; i++) {
+							var merk_string = obj[i].nama_motor;
+
+							nama_motor += "<option value='"+merk_string+"'>"+merk_string+"</option>";
+						}
+
+						$("#pilih_nama_motor").html(nama_motor);
+						
+					});
+		});
+		
+
+		//dapatkan id, harga motor
+
+		$("#pilih_nama_motor").change(
+			function(){
+
+			var merk_motor = $("#pilih_merk_motor").val();
+			var nama_motor = $("#pilih_nama_motor").val();
+
+			$.ajax({url: "API/getMotorInfo.php?merk_motor="+merk_motor+"&nama_motor="+nama_motor,
+					cache: false
+					}).done(function (html) {
+						var obj = $.parseJSON(html);
+						
+						var harga_motor = obj.harga;
+						var id_motor = obj.id_motor;
+						var dp_minimum = harga_motor*10/100;
+
+						$("#harga_motor").html(harga_motor);
+						$("#id_motor").html(id_motor);
+						$("#dp_minimum").html(dp_minimum);
+						$("[name='id_motor']").val(id_motor);
+					});
+		});
+
+		
+
+	});
+
+
+	function cekMinimumDP(){
+		var dp = $("#dp").val();
+		var harga_motor = $("#harga_motor").html();
+		var id_motor = $("#id_motor").html();
+		var stok = $("#tersedia").html();
+
+		if (harga_motor == "" || id_motor == "") {
+			alert("Pilih dulu motor");
+			return false;
+		}else{
+			if (stok == "Tidak Tersedia") {
+				alert("Stok motor " +id_motor+ " tidak tersedia");
+				return false;
+			}else{
+				if (dp < (harga_motor*10/100)) {
+					alert("DP minimum 10% harga motor");
+					return false;
+				}else{
+					return true;
+				}
+			}	
+		}
+
+		
+	}
+</script>
+
+<form action="controller/DaftarKredit.php" method="POST">
+
+	<!-- Nama pelanggan didapat dari id yang dilemparkan -->
+
+	id_pelanggan DATA_ID_PELANGGAN<input type="hidden" name="id_pelanggan" value="DATA_ID_PELANGGAN"/><br/>
+	Nama pelanggan DATA_NAMA_PELANGGAN<input type="hidden" name="nama_pelanggan" value="DATA_NAMA_PELANGGAN"/><br/>
+
+	<hr/>
+	Tanggal mulai kredit <input type="date" name="tanggal_mulai" required/>
+	<hr/>
+
+	<!-- Nanti maunya pakai autocomplete AJAX -->
+
+	<table>
+		<tr>
+			<td>Merk motor</td>
+			<td>
+				
+				<select name="merk_motor" id="pilih_merk_motor" required>
+					
+				</select>
+				<!-- <input type="text" name="merk_motor" id="merk_motor"/> -->
+
+			</td>
+		</tr>
+		<tr>
+			<td>Nama motor</td>
+			<td>
+				<select name="nama_motor" id="pilih_nama_motor" required>
+					
+				</select>
+				<!-- <input type="text" name="nama_motor" id="nama_motor"/> -->
+			</td>
+		</tr>
+		<tr>
+			<td>Id motor</td>
+			<td><span id="id_motor"></span>
+			<input type="hidden" name="id_motor" value=""/></td>
+		</tr>
+		<tr>
+			<td>Harga motor</td>
+			<td><span id="harga_motor"></span></td>
+		</tr>
+
+	</table>
+	
+	
+	<!-- <input type="text" name="id_motor" id="id_motor" value="" required/> --><br/>
+	<hr/>
+
+	<table>
+		<tr>
+			<td>DP</td>
+			<td>
+				<input type="text" name="dp" id="dp" value="" required/>
+				<br/>
+				<span class="small_text">DP minimum 10% dari harga motor</span><br/>
+				<span class="small_text">DP disarankan: </span><b><span class="small_text green" id="dp_minimum"></span></b>
+			</td>
+		</tr>
+		<tr>
+			<td>Lama bulan kredit</td>
+			<td>
+				<select name="lama_tahun_kredit" required>
+					<option value="11">11</option>	
+					<option value="11">15</option>	
+					<option value="11">21</option>	
+					<option value="11">27</option>	
+					<option value="11">33</option>	
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Bunga</td>
+			<td> <input type="text" name="bunga" value="" required/>%</td>
+		</tr>
+	</table>
+	
+	
+	
+
+	<input type="submit" value="tambahkan" OnClick="return cekMinimumDP();" class="button-link"/>
+</form>

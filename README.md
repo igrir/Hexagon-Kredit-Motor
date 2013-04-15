@@ -1,0 +1,1 @@
+HEXAGON adalah sistem informasi sederhana untuk pembayaran kredit motor. Pengguna dapat mengelola motor yang tersedia, pembayar kredit, dan melakukan pembayaran. Laporan-laporan dapat digenerate (belum diimplementasikan)
