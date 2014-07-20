@@ -87,7 +87,8 @@
 
 		function getMotorWithMerkAndNama($merk_motor, $nama_motor){
 			$query = "SELECT * FROM Motor WHERE merk_motor = '$merk_motor' AND
-												nama_motor = '$nama_motor'
+												nama_motor = '$nama_motor' AND
+												tersedia = 1
 												LIMIT 1";
 			return $this->execute($query);
 		}

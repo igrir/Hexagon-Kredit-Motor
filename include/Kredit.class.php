@@ -39,7 +39,7 @@
 		}
 
 		function getKreditWithIdPelanggan($id_pelanggan){
-			$query = "SELECT * FROM Kredit WHERE id_pelanggan = $id_pelanggan";
+			$query = "SELECT * FROM Kredit WHERE id_pelanggan = $id_pelanggan ORDER BY id_kredit";
 			return $this->execute($query);
 		}
 

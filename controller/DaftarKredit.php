@@ -50,7 +50,7 @@
 
 			if ($action) {
 
-				//tambah angsur sebanyak 12 x tahun
+				//tambah angsur sebanyak (12 x tahun) ======= !! sekarang diganti jadi bulan
 				$hitung_tenggat = hitung_tenggat($tanggal_mulai,$lama_tahun_kredit);
 
 				//for ($i = 1 ;$i <= ($lama_tahun_kredit*12); $i++) {
@@ -58,10 +58,15 @@
 					//disini dihitung tanggal per bulannya
 					$tgl_tenggat = $hitung_tenggat[$i-1];
 					
+
+					// var_dump($keterangan_motor);
+
 					//biaya
 					//didapat dari:
 					// (harga motor - dp)/(lama_tahun_kredit*12)+((harga motor - dp)/(lama_tahun_kredit*12)*bunga/100)
-					$biaya = ($keterangan_motor['harga'] - $dp)/($lama_tahun_kredit*12)+(($keterangan_motor['harga'] - $dp)/($lama_tahun_kredit*12)*$bunga/100);
+					$biaya = ($keterangan_motor['harga'] - $dp)/($lama_tahun_kredit)+(($keterangan_motor['harga'] - $dp)/($lama_tahun_kredit)*$bunga/100);
+					
+
 
 					//KALAU ANGSURAN PERTAMA LANGSUNG DITAMBAHKAN
 					if ($i == 1) {

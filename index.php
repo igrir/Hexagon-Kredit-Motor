@@ -16,11 +16,11 @@
 
 	$head->replace("DATA_TITLE", "halaman_utama");
 
-	$table_open = "<table>
+	$table_open = "<table width='100%' class='small_text'>
 					<tr>
-						<td>id</td>
-						<td>Nama</td>
-						<td>Tanggal tenggat</td>
+						<td width='15px'>id</td>
+						<td width='80px'>Nama</td>
+						<td width='50px'>Tanggal tenggat</td>
 					</tr>";
 	$table_close = "</table>";
 	$table_content = "";
@@ -29,7 +29,7 @@
 	$table_content .= $table_open;
 
 	if (count($pembayar) == 0) {
-		$table_content .= "<td colspan=3>Tidak ada pembayaran untuk bulan ini</td>";
+		$table_content .= "<td colspan=3><center><b>Tidak ada pembayaran untuk bulan ini</b></center></td>";
 	}
 
 	for ($i = 0; $i < count($pembayar) ; $i++) {

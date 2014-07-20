@@ -119,6 +119,10 @@
 			//kalau belum dibayar
 				//kalau ada denda warna beda
 				if ($perbedaan_hari > 0) {
+					//TELAT
+					$data_kredit .= "<tr style='background-color:red'>";
+				}else if ($perbedaan_hari > -30) {
+					//BULAN INI
 					$data_kredit .= "<tr style='background-color:yellow'>";
 				}else{
 				//biasa
@@ -147,11 +151,11 @@
 				$data_kredit .= "<td width='15%'>".$j['denda']."</td>";
 
 				if ($j['sudah_bayar'] == 0) {
-					// $data_kredit .= "<td>"."<a href='bayar.php?id_kredit=".$i['id_kredit']."&pembayaran_ke=".$counter."&id_pelanggan=$id_pelanggan'>Bayar</a>"."</td>";
 					if ($perbedaan_hari > 0) {
+						//TELAT
 						$data_kredit .= "<td width='15%'>Terlambat</td>";
 					}else{
-						$data_kredit .= "<td width='15%'> as</td>";
+						$data_kredit .= "<td width='15%'></td>";
 					}
 				}else{
 					$data_kredit .= "<td width='15%'>Lunas</td>";
